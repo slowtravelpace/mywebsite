@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Voyages et Découvertes - Mon Blog Personnel</title>
+    <title>Voyages et Découvertes</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -31,6 +31,9 @@
             margin: 0 auto;
             padding: 1rem;
         }
+        .lang-fr, .lang-en {
+            display: none; /* Masquer toutes les sections par défaut */
+        }
         footer {
             background: #333;
             color: #fff;
@@ -41,6 +44,24 @@
             bottom: 0;
         }
     </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Récupérer le paramètre 'lang' de l'URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const lang = urlParams.get('lang');
+
+            // Afficher seulement la section correspondant à la langue choisie
+            if (lang === 'fr') {
+                document.querySelectorAll('.lang-fr').forEach(function(el) {
+                    el.style.display = 'block';
+                });
+            } else if (lang === 'en') {
+                document.querySelectorAll('.lang-en').forEach(function(el) {
+                    el.style.display = 'block';
+                });
+            }
+        });
+    </script>
 </head>
 <body>
     <header>
@@ -48,16 +69,19 @@
         <p>Bienvenue sur mon blog personnel dédié aux récits et informations de voyage</p>
     </header>
     <nav>
-        <a href="#about">À propos</a>
-        <a href="#trips">Mes Voyages</a>
-        <a href="#contact">Contact</a>
+        <a href="?lang=fr">Français</a>
+        <a href="?lang=en">English</a>
     </nav>
     <div class="container">
-        <section id="about">
+        <section class="lang-fr">
             <h2>À propos de moi</h2>
-            <p>Passionné par les voyages et les découvertes, je partage ici mes récits, astuces et informations utiles pour tous les amateurs d'aventures. Mon objectif est de vous inspirer à explorer le monde tout en vous donnant les moyens de le faire de manière pratique et économique.</p>
+            <p>Passionné par les voyages et les découvertes, je partage ici mes récits, astuces et informations utiles pour tous les amateurs d'aventures.</p>
         </section>
-        <section id="trips">
+        <section class="lang-en">
+            <h2>About Me</h2>
+            <p>Passionate about travel and discoveries, I share here my stories, tips, and useful information for all adventure enthusiasts.</p>
+        </section>
+        <section class="lang-fr">
             <h2>Mes Voyages</h2>
             <article>
                 <h3>Destination 1</h3>
@@ -72,11 +96,37 @@
                 <p>Récit de voyage, conseils, et informations sur la destination.</p>
             </article>
         </section>
-        <section id="contact">
+        <section class="lang-en">
+            <h2>My Trips</h2>
+            <article>
+                <h3>Destination 1</h3>
+                <p>Travelogue, tips, and information about the destination.</p>
+            </article>
+            <article>
+                <h3>Destination 2</h3>
+                <p>Travelogue, tips, and information about the destination.</p>
+            </article>
+            <article>
+                <h3>Destination 3</h3>
+                <p>Travelogue, tips, and information about the destination.</p>
+            </article>
+        </section>
+        <section class="lang-fr">
             <h2>Contact</h2>
             <p>Pour toute question ou collaboration, vous pouvez me contacter à l'adresse suivante :</p>
             <p>Email: <a href="mailto:example@example.com">example@example.com</a></p>
             <p>Retrouvez-moi sur les réseaux sociaux :</p>
+            <ul>
+                <li><a href="https://www.facebook.com/yourprofile" target="_blank">Facebook</a></li>
+                <li><a href="https://www.instagram.com/yourprofile" target="_blank">Instagram</a></li>
+                <li><a href="https://www.twitter.com/yourprofile" target="_blank">Twitter</a></li>
+            </ul>
+        </section>
+        <section class="lang-en">
+            <h2>Contact</h2>
+            <p>For any questions or collaborations, you can contact me at the following address:</p>
+            <p>Email: <a href="mailto:example@example.com">example@example.com</a></p>
+            <p>Find me on social media:</p>
             <ul>
                 <li><a href="https://www.facebook.com/yourprofile" target="_blank">Facebook</a></li>
                 <li><a href="https://www.instagram.com/yourprofile" target="_blank">Instagram</a></li>
